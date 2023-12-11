@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <div id="myDiv" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <input type="text" id="myInput">
+    <input type="text" name="username">
+    <form id="myForm">
+        <input type="submit" value="Submit">
+    </form>
+    <input type="text" id="myInput2">
+
+    <div class="custom-class">
+        <p class="target">Target Paragraph</p>
+        <p>Non-Target Paragraph</p>
+    </div>
+
+    <script>
+        // Click Event with QuerySelector
+        document.querySelector("#myButton").addEventListener("click", function() {
+            alert("Button clicked!");
+        });
+
+        // Mouseover & Mouseout with QuerySelector
+        document.querySelector("#myDiv").addEventListener("mouseover", function() {
+            this.style.backgroundColor = "lightcoral";
+        });
+
+        document.querySelector("#myDiv").addEventListener("mouseout", function() {
+            this.style.backgroundColor = "lightblue";
+        });
+
+        // Input Event with QuerySelector
+        document.querySelector("#myInput").addEventListener("input", function() {
+            console.log("Input value changed:", this.value);
+        });
+
+        // Submit Event with QuerySelector
+        document.querySelector("#myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission
+            console.log("Form submitted");
+        });
+
+        // Resize Event with Window QuerySelector
+        window.addEventListener("resize", function() {
+            console.log("Window resized");
+        });
+
+        // Keyboard Event with QuerySelector
+        document.querySelector("#myInput").addEventListener("keydown", function(event) {
+            console.log("Key pressed:", event.key);
+        });
+
+        document.querySelector("#myInput").addEventListener("keyup", function(event) {
+            console.log("Key released:", event.key);
+        });
+
+        // Focusing & Blurring with QuerySelector
+        document.querySelector("#myInput").addEventListener("focus", function() {
+            console.log("Input focused");
+        });
+
+        document.querySelector("#myInput").addEventListener("blur", function() {
+            console.log("Input blurred");
+        });
+
+        // Change Event with QuerySelector
+        document.querySelector("#myInput2").addEventListener("change", function() {
+            console.log("Input value changed:", this.value);
+        });
+
+        // Context Menu Event with QuerySelector
+        document.querySelector("body").addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            console.log("Context menu opened");
+        });
+
+        // Double Click Event with QuerySelector
+        document.querySelector("#myDiv").addEventListener("dblclick", function() {
+            console.log("Double-clicked on the div");
+        });
+
+        // Scroll Event with Window QuerySelector
+        window.addEventListener("scroll", function() {
+            console.log("Page scrolled");
+        });
+
+        // Event Delegation with QuerySelector
+        document.querySelector(".custom-class").addEventListener("click", function(event) {
+            if (event.target.classList.contains("target")) {
+                console.log("Clicked on the target paragraph");
+            }
+        });
+    </script>
+</body>
+</html>

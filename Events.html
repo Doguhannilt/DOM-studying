@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <div id="myDiv" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <input type="text" id="myInput">
+    <input type="text" name="username">
+    <form id="myForm">
+        <input type="submit" value="Submit">
+    </form>
+    <input type="text" id="myInput2">
+
+    <script>
+        // Click Event
+        document.getElementById("myButton").addEventListener("click", function() {
+            alert("Button clicked!");
+        });
+
+        // Mouseover & Mouseout
+        var myDiv = document.getElementById("myDiv");
+        myDiv.addEventListener("mouseover", function() {
+            myDiv.style.backgroundColor = "lightcoral";
+        });
+
+        myDiv.addEventListener("mouseout", function() {
+            myDiv.style.backgroundColor = "lightblue";
+        });
+
+        // Input Event
+        document.getElementById("myInput").addEventListener("input", function() {
+            console.log("Input value changed:", this.value);
+        });
+
+        // Submit Event
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission
+            console.log("Form submitted");
+        });
+
+        // Resize Event
+        window.addEventListener("resize", function() {
+            console.log("Window resized");
+        });
+
+        // Keyboard Event
+        document.getElementById("myInput").addEventListener("keydown", function(event) {
+            console.log("Key pressed:", event.key);
+        });
+
+        document.getElementById("myInput").addEventListener("keyup", function(event) {
+            console.log("Key released:", event.key);
+        });
+
+        // Focusing & Blurring
+        document.getElementById("myInput").addEventListener("focus", function() {
+            console.log("Input focused");
+        });
+
+        document.getElementById("myInput").addEventListener("blur", function() {
+            console.log("Input blurred");
+        });
+
+        // Change Event
+        document.getElementById("myInput2").addEventListener("change", function() {
+            console.log("Input value changed:", this.value);
+        });
+
+        // Context Menu Event
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            console.log("Context menu opened");
+        });
+
+        // Double Click Event
+        document.getElementById("myDiv").addEventListener("dblclick", function() {
+            console.log("Double-clicked on the div");
+        });
+
+        // Scroll Event
+        window.addEventListener("scroll", function() {
+            console.log("Page scrolled");
+        });
+    </script>
+</body>
+</html>

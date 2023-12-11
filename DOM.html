@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Section 1: DOM Elements -->
+    <div class="custom-bg">
+        <h1 id="intro-text">Document Object Model</h1>
+    </div>
+    <div>
+        <p class="something-class">Something in the Document</p>
+    </div>
+    <button>Toggle</button>
+
+    <!-- Section 2: Manipulating the DOM -->
+    <h1 class="manipulating">Manipulating the DOM</h1>
+    <ol class="list">
+        <li>Intro to DOM</li>
+        <li>Getting Elements</li>
+    </ol>
+
+    <script>
+        // Lecture 1: Changing Text and Styles
+        let h1Element = document.getElementById("intro-text");
+        h1Element.firstChild.nodeValue = "The get methods"; // Change text content
+        h1Element.style.color = "yellow"; // Change text color
+
+        let pElements = document.getElementsByTagName('p');
+        for (let pElement of pElements) {
+            pElement.style.color = "violet"; // Change color of <p> elements
+        }
+
+        let customDivs = document.getElementsByClassName('custom-bg');
+        for (let element of customDivs) {
+            element.style.backgroundColor = 'darkgray'; // Change background color
+        }
+
+        // Lecture 2: Selecting and Styling Elements
+        let pElementsInDivs = document.querySelectorAll('div p');
+        for (let element of pElementsInDivs) {
+            element.style.fontWeight = 'bold'; // Change font weight
+        }
+
+        let somethingP = document.querySelector(".something-class");
+        somethingP.style.color = "gray"; // Change text color
+
+        // Lecture 3: Creating and Deleting Elements
+        let olElement = document.createElement('ol'); // Create <ol> element
+        let scriptElement = document.querySelector('script');
+
+        // Commented out to avoid insertion for clarity
+        // document.body.insertBefore(olElement, scriptElement); // Insert <ol> before script
+
+        let takeList = document.querySelector(".list");
+        if (takeList.lastElementChild) {
+            takeList.removeChild(takeList.lastElementChild); // Remove last <li> element
+            console.log("Deleted");
+        } else {
+            console.log("There is nothing in this list");
+        }
+
+        // Lecture 4: Manipulating Classes
+        document.body.className = 'Dark'; // Set body class
+        document.body.classList.toggle('dark'); // Toggle class
+        document.body.classList.remove('dark'); // Remove class
+        document.body.classList.add('dark'); // Add class
+
+        document.querySelector('.manipulating').classList.add('Added'); // Add class to <h1>
+
+        // Lecture 5: Window Events
+        window.onload = function () {
+            // It works whenever the page is loaded
+        }
+
+        window.addEventListener('load', function () {
+            console.log('Oh hi'); // Log message on page load
+        });
+    </script>
+</body>
+</html>
